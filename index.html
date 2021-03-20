@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GG font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"> 
+
+    <!-- css -->
+    <link rel="stylesheet" href="./scss/style.css">
+    <script src="script.js" defer></script>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <link rel="icon"
+        href="o.svg">
+    <title>Tic tac toe</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="top-bar center-child">
+            <img src="x.svg" alt="x">
+            <div id="score">
+                0 - 0
+            </div>
+            <img src="o.svg" alt="o">
+        </div>
+        <div class="board" id="board">
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+        </div>
+        <div class="winning-message bottom-bar" id="winningMessage">
+            <button  id="restartButton"  class="restart center-child">
+                <i class="fas fa-redo-alt"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="contact">
+        <a target="_blank" href="https://github.com/vanviethieuanh/tictactoe"><i class="fab fa-github-alt"></i></a>
+    </div>
+</body>
+
+</html>
