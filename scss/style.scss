@@ -168,6 +168,38 @@ body {
 
         transition: all .5s ease-in-out;
 
+        &.x {
+            .cell {
+                &:hover {
+                    &:not(.x):not(.o) {
+                        background-image: url('../x.svg');
+                        background-size: $mark-size;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-blend-mode: overlay;
+                        background-color: rgba(255, 255, 255, 0.5);
+                    }
+
+                }
+            }
+        }
+
+        &.o {
+            .cell {
+                &:hover {
+                    &:not(.x):not(.o) {
+                        background-image: url('../o.svg');
+                        background-size: $mark-size;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-blend-mode: overlay;
+                        background-color: rgba(255, 255, 255, 0.5);
+                    }
+
+                }
+            }
+        }
+
         .cell {
 
             width: $cell-size;
@@ -209,8 +241,6 @@ body {
                 border-bottom: none;
                 border-top: none;
             }
-
-
 
             .mark {
                 &.glow {
