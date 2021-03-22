@@ -1,2 +1,2 @@
 # tictactoe
-❌ Tic tac toe game ⭕
+❌ [Tic tac toe game](https://vanviethieuanh.github.io/tictactoe/) ⭕
