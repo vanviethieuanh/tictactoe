@@ -58,15 +58,21 @@ const COLOR_THEMES = [
         lightTheme: false,
     },
     {
+        title: 'Neon',
+        O: ['b000ff', 'fd00ff'],
+        X: ['04C4D9', '05F2F2'],
+        lightTheme: false,
+    },
+    {
         title: 'Snow Country',
         O: ['e6e9f0', 'eef1f5'],
         X: ['accbee', 'e7f0fd'],
         lightTheme: false,
     },
     {
-        title: 'Neon',
-        O: ['b000ff', 'fd00ff'],
-        X: ['04C4D9', '05F2F2'],
+        title: 'Fahrenheit 451',
+        O: ['fc6076', 'ff9a44'],
+        X: ['fdfcfb', 'e2d1c3'],
         lightTheme: false,
     },
 ]
