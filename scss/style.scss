@@ -1,3 +1,30 @@
+:root {
+    --board-color: white;
+    --line-color: rgb(240, 240, 245);
+
+    --bg: radial-gradient(50% 50% at 50% 50%, rgba(242, 242, 242, 0.644) 0%, rgba(243, 243, 254, 0.92) 100%);
+}
+
+
+.light {
+    background: white;
+
+    --text-color: #151515;
+
+    --line-color: rgb(240, 240, 245);
+    --board-color: white;
+    --bg: radial-gradient(50% 50% at 50% 50%, rgba(242, 242, 242, 0.644) 0%, rgba(243, 243, 254, 0.92) 100%);
+}
+
+.dark {
+    background: #151515;
+    --text-color: white;
+
+    --line-color: rgb(35, 35, 35);
+    --board-color: rgb(31, 31, 31);
+    --bg: radial-gradient(50% 50% at 50% 50%, hsla(0, 0%, 95%, 0.068) 0%, hsla(240, 85%, 97%, 0.014) 100%);
+}
+
 $cell-size: 80px;
 $mark-size: calc($cell-size* .9);
 $border-size: 2px;
@@ -6,11 +33,9 @@ $board-size: $cell-size * 3+$border-size * 2+2*$board-padding;
 
 $restart-button-radius: 20px;
 
-$bg: rgb(250, 250, 250);
-$stroke-color: rgb(240, 240, 240);
-$button-color: rgb(120, 120, 120);
 $x-color: linear-gradient(#EB3349, #F45C43);
 $o-color: linear-gradient(#02aab0, #00cdac);
+
 $mark-size: $cell-size - 4 * $board-padding;
 
 @function shadow($opacity, $spread: 20px) {
@@ -50,6 +75,10 @@ $mark-size: $cell-size - 4 * $board-padding;
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+}
+
 .center-child {
     display: grid;
 
@@ -59,27 +88,67 @@ $mark-size: $cell-size - 4 * $board-padding;
     align-items: center;
 }
 
+/* Dropdown menu */
+.dropdown {
+    position: absolute;
+    opacity: 0;
+    z-index: 2;
+    background: var(--bg);
+    border-top: 2px solid var(--border-color);
+
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2rem;
+    padding: 0.5rem;
+
+    transform: translateX(-15%);
+   
+    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.175em 0.5em;
+
+    transition: opacity .15s ease-out;
+
+    list-style: none;
+}
+
+.has-dropdown:focus-within .dropdown   {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.dropdown-item a {
+    width: 100%;
+    height: 100%;
+    size: 0.7rem;
+    font-weight: bold;
+}
+
 body {
-    // background-image: url(https://source.unsplash.com/1600x900/?nature,water);
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // backdrop-filter: blur(10px);
+    background: var(--bg);
+
+    color: var(--text-color);
+    height: 100vh;
+    width: 100vw;
 
     display: grid;
-
-    justify-content: center;
-    align-content: center;
-    justify-items: center;
-    align-items: center;
-
-    height: 100vh;
-
-    background-color: $bg;
+    place-items: center;
     margin: 0;
     padding: 0;
 
     font-family: 'Roboto',
         sans-serif;
+
+    #bg {
+        filter: blur(200px);
+
+        position: absolute;
+        z-index: -1;
+    }
 
     #container {
         width: $board-size;
@@ -94,15 +163,23 @@ body {
         grid-template-columns: repeat(3, 1fr);
         padding: 0px 40px;
 
+        svg {
+            $size: 2rem;
+
+            width: $size;
+            height: $size;
+        }
+
         #score {
+            color: var(--text-color);
+
             display: inline-flex;
             font-size: $restart-button-radius;
-            opacity: .5;
+            opacity: .8;
 
             font-size: 16px;
             font-weight: 600;
             font-family: 'Montserrat', sans-serif;
-
         }
     }
 
@@ -131,13 +208,11 @@ body {
 
             i {
                 transition: all .2s ease-in-out;
-                color: $button-color;
+                color: var(--text-color);
                 font-size: $restart-button-radius;
             }
 
             &:hover {
-                background-color: white;
-                box-shadow: shadow(.1, 5px);
                 opacity: 1;
 
                 i {
@@ -152,7 +227,7 @@ body {
 
         animation: pop-up .5s ease-in-out;
 
-        background-color: white;
+        background-color: var(--board-color);
         border-radius: 10px;
         box-shadow: shadow(.1);
 
@@ -168,43 +243,11 @@ body {
 
         transition: all .5s ease-in-out;
 
-        &.x {
-            .cell {
-                &:hover {
-                    &:not(.x):not(.o) {
-                        background-image: url('../x.svg');
-                        background-size: $mark-size;
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        background-blend-mode: overlay;
-                        background-color: rgba(255, 255, 255, 0.5);
-                    }
-
-                }
-            }
-        }
-
-        &.o {
-            .cell {
-                &:hover {
-                    &:not(.x):not(.o) {
-                        background-image: url('../o.svg');
-                        background-size: $mark-size;
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        background-blend-mode: overlay;
-                        background-color: rgba(255, 255, 255, 0.5);
-                    }
-
-                }
-            }
-        }
-
         .cell {
 
             width: $cell-size;
             height: $cell-size;
-            border: $border-size solid rgb(240, 240, 245);
+            border: $border-size solid var(--line-color);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -269,11 +312,12 @@ body {
     bottom: 0;
     right: 0;
     padding: 20px;
+    margin: 0;
 
     a {
         font-size: 20px;
         text-decoration: none;
-        color: $button-color;
+        color: inherit;
         opacity: .7;
 
         &:hover {
