@@ -13,7 +13,7 @@
 
     --line-color: rgb(240, 240, 245);
     --board-color: white;
-    --bg: radial-gradient(50% 50% at 50% 50%, rgba(242, 242, 242, 0.644) 0%, rgba(243, 243, 254, 0.92) 100%);
+    --bg: rgba(255, 255, 255, 0.5);
 }
 
 .dark {
@@ -22,7 +22,7 @@
 
     --line-color: rgb(35, 35, 35);
     --board-color: rgb(31, 31, 31);
-    --bg: radial-gradient(50% 50% at 50% 50%, hsla(0, 0%, 95%, 0.068) 0%, hsla(240, 85%, 97%, 0.014) 100%);
+    --bg: rgba(0, 0, 0, 0.2);
 }
 
 $cell-size: 80px;
@@ -88,44 +88,28 @@ a{
     align-items: center;
 }
 
-/* Dropdown menu */
-.dropdown {
-    position: absolute;
-    opacity: 0;
-    z-index: 2;
-    background: var(--bg);
-    border-top: 2px solid var(--border-color);
+.themes{
+    background-color: var(--bg);
+    border-radius: 7px;
 
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 2rem;
-    padding: 0.5rem;
+    margin: 1rem 0;
 
-    transform: translateX(-15%);
-   
-    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.175em 0.5em;
+    min-width: 20ch;
+    text-align: center;
 
-    transition: opacity .15s ease-out;
+    p{
+        color: var(--text-color);
+        opacity: .7;
+        transition: opacity .5s ease;
 
-    list-style: none;
-}
+        user-select: none;
+    }
 
-.has-dropdown:focus-within .dropdown   {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-
-.dropdown-item a {
-    width: 100%;
-    height: 100%;
-    size: 0.7rem;
-    font-weight: bold;
+    &:hover{
+        p{
+            opacity: 1;
+        }
+    }
 }
 
 body {
@@ -136,6 +120,7 @@ body {
     width: 100vw;
 
     display: grid;
+    grid-template-rows: auto 1fr;
     place-items: center;
     margin: 0;
     padding: 0;
@@ -240,8 +225,6 @@ body {
         align-items: center;
 
         grid-template-columns: repeat(3, auto);
-
-        transition: all .5s ease-in-out;
 
         .cell {
 

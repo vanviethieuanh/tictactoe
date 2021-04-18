@@ -26,18 +26,50 @@ const O_VECTOR_GLOW = `
 </svg>
 `
 
-const COLOR_THEMES = {
-    Light: {
+const COLOR_THEMES = [
+    {
+        title: 'Strawberry',
         O: ['02AAB0', '00CDAC'],
         X: ['EB3349', 'F45C43'],
         lightTheme: true,
     },
-    StarsNight: {
+    {
+        title: 'Lollipop',
+        O: ['FF9A8B', 'FF6A88', 'FF99AC'],
+        X: ['8BC6EC', '8EC5FC'],
+        lightTheme: true,
+    },
+    {
+        title: 'Milky Way',
         O: ['AC32E4', '7918F2', '4801FF'],
         X: ['fbd72b', 'f9484a'],
         lightTheme: false,
     },
-}
+    {
+        title: 'The Starry Night',
+        O: ['FDEB71', 'F8D800'],
+        X: ['72EDF2', '5151E5'],
+        lightTheme: false,
+    },
+    {
+        title: 'Nature',
+        O: ['4facfe', '00f2fe'],
+        X: ['6a11cb', '2575fc'],
+        lightTheme: false,
+    },
+    {
+        title: 'Snow Country',
+        O: ['e6e9f0', 'eef1f5'],
+        X: ['accbee', 'e7f0fd'],
+        lightTheme: false,
+    },
+    {
+        title: 'Neon',
+        O: ['b000ff', 'fd00ff'],
+        X: ['04C4D9', '05F2F2'],
+        lightTheme: false,
+    },
+]
 
 const X_CLASS = 'x'
 const CIRCLE_CLASS = 'o'
@@ -174,6 +206,7 @@ function allGlow() {
 }
 
 function SetTheme(theme) {
+    document.querySelector('.themes>p').innerHTML = theme.title
     document.querySelector('body').className = theme.lightTheme
         ? 'light'
         : 'dark'
@@ -190,4 +223,18 @@ function SetTheme(theme) {
     })
     document.querySelector('linearGradient#color_o').innerHTML = oStops
 }
-// SetTheme(COLOR_THEMES.StarsNight)
+
+let currentTheme = 0
+
+function NextTheme() {
+    currentTheme++
+    if (currentTheme >= COLOR_THEMES.length) currentTheme = 0
+    SetTheme(COLOR_THEMES[currentTheme])
+}
+
+document
+    .querySelector('svg#bg')
+    .setAttribute(
+        'viewBox',
+        `0 0 ${window.innerWidth / 10} ${window.innerHeight / 10}`
+    )

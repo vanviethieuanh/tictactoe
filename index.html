@@ -24,6 +24,10 @@
 </head>
 
 <body class="light">
+    <div class="themes-menu">
+
+    </div>
+
     <!-- Background -->
     <svg style="position: absolute;z-index: -1;" class="defs" width="0" height="0" fill=" none"
         xmlns="http://www.w3.org/2000/svg">
@@ -52,21 +56,6 @@
             stroke-width="8" />
     </svg>
 
-    <!-- Themes menu -->
-    <div class="has-dropdown">
-        <a href="#">Theme</a>
-        <ul class="dropdown">
-            <li class="dropdown-item">
-                <a id="light" href="#">light</a>
-            </li>
-            <li class="dropdown-item">
-                <a id="dark" href="#">dark</a>
-            </li>
-            <li class="dropdown-item">
-                <a id="solar" href="#">solarize</a>
-            </li>
-        </ul>
-    </div>
 
     <!-- Board -->
     <div id="container">
@@ -99,6 +88,11 @@
                 <i class="fas fa-redo-alt"></i>
             </button>
         </div>
+    </div>
+    <div class="themes" onclick="NextTheme()">
+        <p class="title">
+            Strawberry
+        </p>
     </div>
 
     <!-- Github -->
