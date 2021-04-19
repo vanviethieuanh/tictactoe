@@ -1,25 +1,24 @@
 :root {
     --board-color: white;
     --line-color: rgb(240, 240, 245);
-
+    --shadow-color: rgba(0, 0, 0,.1);
+    
     --bg: radial-gradient(50% 50% at 50% 50%, rgba(242, 242, 242, 0.644) 0%, rgba(243, 243, 254, 0.92) 100%);
 }
 
 
 .light {
-    background: white;
+    background: rgb(225, 225, 225);
 
-    --text-color: #151515;
-
+    --text-color: #111111;
     --line-color: rgb(240, 240, 245);
     --board-color: white;
     --bg: rgba(255, 255, 255, 0.5);
 }
 
 .dark {
-    background: #151515;
+    background: rgb(30, 30, 30);
     --text-color: white;
-
     --line-color: rgb(35, 35, 35);
     --board-color: rgb(31, 31, 31);
     --bg: rgba(0, 0, 0, 0.2);
@@ -89,6 +88,8 @@ a{
 }
 
 .themes{
+    cursor: pointer;
+    
     background-color: var(--bg);
     border-radius: 7px;
 
@@ -96,6 +97,7 @@ a{
 
     min-width: 20ch;
     text-align: center;
+    transition: all .5s ease;
 
     p{
         color: var(--text-color);
@@ -104,8 +106,9 @@ a{
 
         user-select: none;
     }
-
+    
     &:hover{
+        box-shadow: 0 0 20px var(--shadow-color);
         p{
             opacity: 1;
         }
@@ -114,7 +117,7 @@ a{
 
 body {
     background: var(--bg);
-
+    
     color: var(--text-color);
     height: 100vh;
     width: 100vw;
